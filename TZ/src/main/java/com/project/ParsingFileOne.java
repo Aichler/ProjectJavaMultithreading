@@ -7,10 +7,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class ParsingFileOne implements Runnable{
+    Input input;
+
+    public ParsingFileOne(Input input) {
+        this.input = input;
+    }
+
+    public ParsingFileOne() {
+    }
+
 
     @Override
     public synchronized void run() {
-        Input input = new Input();
+//        Input input = new Input();
         String splitBy = ";";
         BufferedReader br = null;
         try {

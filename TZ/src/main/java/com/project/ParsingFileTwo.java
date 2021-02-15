@@ -1,7 +1,6 @@
 package com.project;
 
 import com.project.model.Input;
-import com.project.model.Input2;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,9 +8,18 @@ import java.util.HashSet;
 
 public class ParsingFileTwo implements Runnable{
 
+    Input input;
+
+    public ParsingFileTwo(Input input) {
+        this.input = input;
+    }
+
+    public ParsingFileTwo() {
+    }
+
     @Override
     public void run() {
-        Input2 input2 = new Input2();
+
         String splitBy = ";";
         BufferedReader br = null;
         try {
@@ -40,9 +48,9 @@ public class ParsingFileTwo implements Runnable{
             hSetId.add(b[0]);
             hSetName.add(b[1]);
             hSetSex.add(b[2]);
-            input2.setId(hSetId);
-            input2.setName(hSetName);
-            input2.setSex(hSetSex);
+            input.setId(hSetId);
+            input.setName(hSetName);
+            input.setSex(hSetSex);
 
         }
         File file = new File("/home/aichler/Документы/stachirovka/TZ/src/main/java/com/project/file/id.csv");
@@ -58,7 +66,7 @@ public class ParsingFileTwo implements Runnable{
         System.out.println(bool);
         try(FileWriter writer = new FileWriter(file, bool))
         {
-            ArrayList<String> list = new ArrayList(input2.getId());
+            ArrayList<String> list = new ArrayList(input.getId());
             for (String temp : list){
                 writer.write(temp);
                 writer.append(';');
@@ -71,7 +79,7 @@ public class ParsingFileTwo implements Runnable{
             //name
             try(FileWriter writer = new FileWriter(fileName, false))
             {
-                ArrayList<String> list = new ArrayList(input2.getName());
+                ArrayList<String> list = new ArrayList(input.getName());
                 for (String temp : list){
                     writer.write(temp);
                     writer.append(';');
@@ -85,7 +93,7 @@ public class ParsingFileTwo implements Runnable{
                 //sex
                 try(FileWriter writer = new FileWriter(fileSex, false))
                 {
-                    ArrayList<String> list = new ArrayList(input2.getSex());
+                    ArrayList<String> list = new ArrayList(input.getSex());
                     for (String temp : list){
                         writer.write(temp);
                         writer.append(';');

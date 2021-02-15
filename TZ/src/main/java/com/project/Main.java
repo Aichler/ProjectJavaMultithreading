@@ -13,13 +13,13 @@ class Main{
         writer.print("");
         writer.close();
         Input input = new Input();
-        ParsingFileOne thread = new ParsingFileOne();
-        ParsingFileTwo parsingFileTwo = new ParsingFileTwo();
         ExecutorService es = Executors.newFixedThreadPool(5);
         System.out.println(" Зaпycк потоков ");
-            es.submit(new ParsingFileTwo());
-            es.submit(new ParsingFileOne());
+            es.submit(new ParsingFileTwo(input));
+            es.submit(new ParsingFileOne(input));
             es.shutdown();
+        System.out.println(" потоков ");
+
     }
 
 }

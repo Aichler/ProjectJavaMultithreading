@@ -6,6 +6,8 @@ public class Input {
     private HashSet<String> id;
     private HashSet<String> version;
     private HashSet<String> path;
+    private HashSet<String> name;
+    private HashSet<String> sex;
 
     public Input() {
     }
@@ -32,5 +34,21 @@ public class Input {
 
     public void setPath(HashSet<String> path) {
         this.path = path;
+    }
+
+    public HashSet<String> getName() {
+        return name;
+    }
+
+    public void setName(HashSet<String> name) {
+        this.name = name;
+    }
+
+    public HashSet<String> getSex() {
+        return sex;
+    }
+
+    public void setSex(HashSet<String> sex) {
+        this.sex = sex;
     }
 }
